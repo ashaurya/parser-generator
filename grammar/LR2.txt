@@ -1,0 +1,7 @@
+S : E q E
+S : f
+E : T
+E : E p T
+T : f
+T : T s f
+

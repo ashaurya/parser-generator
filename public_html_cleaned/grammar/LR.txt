@@ -1,0 +1,6 @@
+E : E P T
+E : T
+T : T S F
+T : F
+F : L E R
+F : I

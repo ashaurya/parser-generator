@@ -1,0 +1,5 @@
+bexpr: bexpr be
+be: 'or' bterm be | 'epsilon'
+bterm: bterm bt
+bt: 'and' bfactor bt | 'epsilon'
+bfactor: 'not' bfactor | '(' bexpr ')' | 'true' | 'false'

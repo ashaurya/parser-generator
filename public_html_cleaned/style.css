@@ -1,0 +1,50 @@
+#qform label{
+vertical-align:top;font-family:arial;
+	font-size:1.3em; }
+#formdiv{
+float:left;
+margin-left:33%;
+}
+
+#hd{
+	text-align:center;
+	font-family:arial;
+	font-size:3em;
+}
+#ft{
+	font-family:arial;
+	font-size:1.3em;
+}
+#BOSSrecommend{
+
+font-family:monospace;
+text-align:center;
+font-size:1.3em;
+}
+#qform
+{
+	font-family:monospace;
+	font-size:1.2em;
+}
+.button
+{
+	font-family:monospace;
+	border-width=2px;
+	border-style:solid;
+	width:350px;
+	height:1.01em;
+	padding:10px;
+	font-weight:bold;
+	border-radius:10px;
+	text-align:center;
+	margin-top:10px;
+	
+}
+.button:hover
+{
+	background-color:orange;
+}
+input:hover{
+background-color:orange;}
+textarea:hover{
+background-color:orange;}

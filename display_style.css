@@ -1,0 +1,16 @@
+.question{
+	text-align:left;
+	margin-left:auto;
+	margin-right:auto;
+}
+.hr{
+	background-color:black;
+	height:2px;
+}
+.qtext{
+	font-family:arial;
+}
+.qno{
+	font-family:verdana;
+	font-size:3em;
+}

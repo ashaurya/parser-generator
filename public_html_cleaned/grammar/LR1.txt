@@ -1,0 +1,7 @@
+S : S s A
+S : A
+A : E
+A : I q E
+E : E p I
+E : I
+

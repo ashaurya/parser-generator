@@ -1,0 +1,3091 @@
+<h3>
+
+<p style="padding-left: 40%; ">
+['bexprpRIME', 'bexpr']
+<BR>
+['bexpr', 'bexpr', 'be']
+<BR>
+['be', 'or', 'bterm', 'be']
+<BR>
+['be', 'epsilon']
+<BR>
+['bterm', 'bterm', 'bt']
+<BR>
+['bt', 'and', 'bfactor', 'bt']
+<BR>
+['bt', 'epsilon']
+<BR>
+['bfactor', 'not', 'bfactor']
+<BR>
+['bfactor', "'('", 'bexpr', "')'"]
+<BR>
+['bfactor', 'true']
+<BR>
+['bfactor', 'false']
+<BR>
+</p></h3>
+
+<BR>
+<h1 align="center" >LR(1) Item Sets</h1>
+<BR><h2 align="center" >I_0 <BR>
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bexprprime'</td><td>:</td><td> <b>.</b> 
+bexpr </td><td> $ </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td> <b>.</b> 
+bexpr be </td><td> $ </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td> <b>.</b> 
+bexpr be </td><td> epsilon </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td> <b>.</b> 
+bexpr be </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_1 <BR>
+GOTO(I0,bexpr) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bexprprime'</td><td>:</td><td>
+bexpr  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr  <b>.</b>  be </td><td> $ </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> $ </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> $ </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr  <b>.</b>  be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> epsilon </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr  <b>.</b>  be </td><td> or </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> or </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_2 <BR>
+GOTO(I1,be) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr be  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr be  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr be  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_3 <BR>
+GOTO(I1,epsilon) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_4 <BR>
+GOTO(I1,or) 
+= GOTO(I5,or) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'be'</td><td>:</td><td>
+or  <b>.</b>  bterm be </td><td> $ </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td> <b>.</b> 
+bterm bt </td><td> $ </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td> <b>.</b> 
+bterm bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td> <b>.</b> 
+bterm bt </td><td> or </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td> <b>.</b> 
+bterm bt </td><td> and </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or  <b>.</b>  bterm be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or  <b>.</b>  bterm be </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_5 <BR>
+GOTO(I4,bterm) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm  <b>.</b>  be </td><td> $ </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> $ </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> $ </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm  <b>.</b>  bt </td><td> $ </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> $ </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> $ </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm  <b>.</b>  bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> epsilon </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm  <b>.</b>  bt </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> or </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm  <b>.</b>  bt </td><td> and </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> and </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> and </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm  <b>.</b>  be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm  <b>.</b>  be </td><td> or </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> or </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_6 <BR>
+GOTO(I5,be) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm be  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm be  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm be  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_7 <BR>
+GOTO(I5,bt) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm bt  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm bt  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm bt  <b>.</b>  </td><td> or </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm bt  <b>.</b>  </td><td> and </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_8 <BR>
+GOTO(I5,and) 
+= GOTO(I10,and) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bt'</td><td>:</td><td>
+and  <b>.</b>  bfactor bt </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and  <b>.</b>  bfactor bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and  <b>.</b>  bfactor bt </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and  <b>.</b>  bfactor bt </td><td> and </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_9 <BR>
+GOTO(I5,epsilon) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> and </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_10 <BR>
+GOTO(I8,bfactor) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor  <b>.</b>  bt </td><td> $ </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> $ </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> $ </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor  <b>.</b>  bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor  <b>.</b>  bt </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor  <b>.</b>  bt </td><td> and </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> and </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> and </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_11 <BR>
+GOTO(I8,false) 
+= GOTO(I13,false) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+false  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+false  <b>.</b>  </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+false  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+false  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_12 <BR>
+GOTO(I8,'(') 
+= GOTO(I13,'(') 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'('  <b>.</b>  bexpr ')' </td><td> $ </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td> <b>.</b> 
+bexpr be </td><td> ')' </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td> <b>.</b> 
+bexpr be </td><td> epsilon </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td> <b>.</b> 
+bexpr be </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'('  <b>.</b>  bexpr ')' </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'('  <b>.</b>  bexpr ')' </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'('  <b>.</b>  bexpr ')' </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_13 <BR>
+GOTO(I8,not) 
+= GOTO(I13,not) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not  <b>.</b>  bfactor </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not  <b>.</b>  bfactor </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not  <b>.</b>  bfactor </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not  <b>.</b>  bfactor </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_14 <BR>
+GOTO(I8,true) 
+= GOTO(I13,true) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+true  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+true  <b>.</b>  </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+true  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+true  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_15 <BR>
+GOTO(I10,bt) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor bt  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor bt  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor bt  <b>.</b>  </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor bt  <b>.</b>  </td><td> and </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_16 <BR>
+GOTO(I10,epsilon) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> and </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_17 <BR>
+GOTO(I12,bexpr) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr  <b>.</b>  ')' </td><td> $ </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr  <b>.</b>  be </td><td> ')' </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> ')' </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> ')' </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr  <b>.</b>  be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> epsilon </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr  <b>.</b>  be </td><td> or </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> or </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr  <b>.</b>  ')' </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr  <b>.</b>  ')' </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr  <b>.</b>  ')' </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_18 <BR>
+GOTO(I13,bfactor) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not bfactor  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not bfactor  <b>.</b>  </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not bfactor  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not bfactor  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_19 <BR>
+GOTO(I17,be) 
+= GOTO(I35,be) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr be  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr be  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr be  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_20 <BR>
+GOTO(I17,epsilon) 
+= GOTO(I35,epsilon) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_21 <BR>
+GOTO(I17,')') 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr ')'  <b>.</b>  </td><td> $ </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr ')'  <b>.</b>  </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr ')'  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr ')'  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_22 <BR>
+GOTO(I17,or) 
+= GOTO(I23,or) 
+= GOTO(I35,or) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'be'</td><td>:</td><td>
+or  <b>.</b>  bterm be </td><td> ')' </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td> <b>.</b> 
+bterm bt </td><td> ')' </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td> <b>.</b> 
+bterm bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td> <b>.</b> 
+bterm bt </td><td> or </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td> <b>.</b> 
+bterm bt </td><td> and </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or  <b>.</b>  bterm be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or  <b>.</b>  bterm be </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_23 <BR>
+GOTO(I22,bterm) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm  <b>.</b>  be </td><td> ')' </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> ')' </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> ')' </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm  <b>.</b>  bt </td><td> ')' </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> ')' </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> ')' </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm  <b>.</b>  bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> epsilon </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm  <b>.</b>  bt </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> or </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm  <b>.</b>  bt </td><td> and </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> and </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> and </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm  <b>.</b>  be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm  <b>.</b>  be </td><td> or </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> or </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_24 <BR>
+GOTO(I23,be) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm be  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm be  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+or bterm be  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_25 <BR>
+GOTO(I23,bt) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm bt  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm bt  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm bt  <b>.</b>  </td><td> or </td></tr>
+<tr>
+<td>'bterm'</td><td>:</td><td>
+bterm bt  <b>.</b>  </td><td> and </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_26 <BR>
+GOTO(I23,and) 
+= GOTO(I28,and) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bt'</td><td>:</td><td>
+and  <b>.</b>  bfactor bt </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and  <b>.</b>  bfactor bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and  <b>.</b>  bfactor bt </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and  <b>.</b>  bfactor bt </td><td> and </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_27 <BR>
+GOTO(I23,epsilon) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> and </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_28 <BR>
+GOTO(I26,bfactor) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor  <b>.</b>  bt </td><td> ')' </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> ')' </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> ')' </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor  <b>.</b>  bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor  <b>.</b>  bt </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor  <b>.</b>  bt </td><td> and </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+and bfactor bt </td><td> and </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> and </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_29 <BR>
+GOTO(I26,false) 
+= GOTO(I31,false) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+false  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+false  <b>.</b>  </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+false  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+false  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_30 <BR>
+GOTO(I26,'(') 
+= GOTO(I31,'(') 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'('  <b>.</b>  bexpr ')' </td><td> ')' </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td> <b>.</b> 
+bexpr be </td><td> ')' </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td> <b>.</b> 
+bexpr be </td><td> epsilon </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td> <b>.</b> 
+bexpr be </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'('  <b>.</b>  bexpr ')' </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'('  <b>.</b>  bexpr ')' </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'('  <b>.</b>  bexpr ')' </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_31 <BR>
+GOTO(I26,not) 
+= GOTO(I31,not) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not  <b>.</b>  bfactor </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not  <b>.</b>  bfactor </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not  <b>.</b>  bfactor </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not  <b>.</b>  bfactor </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+not bfactor </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+'(' bexpr ')' </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+true </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td> <b>.</b> 
+false </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_32 <BR>
+GOTO(I26,true) 
+= GOTO(I31,true) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+true  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+true  <b>.</b>  </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+true  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+true  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_33 <BR>
+GOTO(I28,bt) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor bt  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor bt  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor bt  <b>.</b>  </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+and bfactor bt  <b>.</b>  </td><td> and </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_34 <BR>
+GOTO(I28,epsilon) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> or </td></tr>
+<tr>
+<td>'bt'</td><td>:</td><td>
+epsilon  <b>.</b>  </td><td> and </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_35 <BR>
+GOTO(I30,bexpr) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr  <b>.</b>  ')' </td><td> ')' </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr  <b>.</b>  be </td><td> ')' </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> ')' </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> ')' </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr  <b>.</b>  be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> epsilon </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> epsilon </td></tr>
+<tr>
+<td>'bexpr'</td><td>:</td><td>
+bexpr  <b>.</b>  be </td><td> or </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+or bterm be </td><td> or </td></tr>
+<tr>
+<td>'be'</td><td>:</td><td> <b>.</b> 
+epsilon </td><td> or </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr  <b>.</b>  ')' </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr  <b>.</b>  ')' </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr  <b>.</b>  ')' </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_36 <BR>
+GOTO(I31,bfactor) 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not bfactor  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not bfactor  <b>.</b>  </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not bfactor  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+not bfactor  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<BR><h2 align="center" >I_37 <BR>
+GOTO(I35,')') 
+</h2>
+<table border="3" align="center">
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr ')'  <b>.</b>  </td><td> ')' </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr ')'  <b>.</b>  </td><td> and </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr ')'  <b>.</b>  </td><td> epsilon </td></tr>
+<tr>
+<td>'bfactor'</td><td>:</td><td>
+'(' bexpr ')'  <b>.</b>  </td><td> or </td></tr>
+</table>
+<BR>
+
+<h1 align="center" >LR(1) Action and GOTO table</h1>
+<table border="3" align="center">
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+state
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+and
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+false
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+$
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+epsilon
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+')'
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+'('
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+not
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+true
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+or
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+be
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+bterm
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+bfactor
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+bt
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+bexpr
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+0
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+1
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+1
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+acc
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s3
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s4
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+2
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+2
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r1
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r1
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r1
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+3
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r3
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r3
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r3
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+4
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+5
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+5
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s8
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s9
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s4
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+7
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r2
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r2
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r2
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+7
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r4
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r4
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r4
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r4
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+8
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s11
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s12
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s13
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s14
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+10
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+9
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r3
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+10
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s8
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s16
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+15
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+11
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r10
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r10
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r10
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r10
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+12
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+17
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+13
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s11
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s12
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s13
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s14
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+18
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+14
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r9
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r9
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r9
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r9
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+15
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r5
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r5
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r5
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r5
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+16
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+17
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s20
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s21
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s22
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+19
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+18
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r7
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r7
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r7
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r7
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+19
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r1
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r1
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r1
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+20
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r3
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r3
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r3
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+21
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r8
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r8
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r8
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r8
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+22
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+23
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+23
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s26
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s27
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s22
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+24
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+25
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+24
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r2
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r2
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r2
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+25
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r4
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r4
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r4
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r4
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+26
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s29
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s30
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s31
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s32
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+28
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+27
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r3
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+28
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s26
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s34
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+33
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+29
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r10
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r10
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r10
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r10
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+30
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+35
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+31
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s29
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s30
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s31
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s32
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+36
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+32
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r9
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r9
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r9
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r9
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+33
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r5
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r5
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r5
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r5
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+34
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r6
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+35
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s20
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s37
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+s22
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+19
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+36
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r7
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r7
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r7
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r7
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+<tr>
+
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+37
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r8
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r8
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r8
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+r8
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+<td style="padding-left: 10px; padding-right: 10px;"><center>
+ 
+</center></td>
+</tr>
+</table>
+<BR>

@@ -1,0 +1,6 @@
+A : C x A 
+A : 'epsilon'
+B : x C y 
+B : x C
+C : x B x 
+C : z
